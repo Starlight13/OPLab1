@@ -1,9 +1,13 @@
 #include <iostream>
+#include "Header.h"
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main(){
+    students *students = readFile();
+    budget(students);
+    sort(students);
+    scholarship(students);
+    
 }
 
 
