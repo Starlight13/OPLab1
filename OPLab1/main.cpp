@@ -8,6 +8,7 @@ int main(){
     sort(students);
     scholarship(students);
     
+    return 0;
 }
 
 
