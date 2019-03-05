@@ -50,11 +50,11 @@ students *readFile() {
     return item;
 }
 
-void writeToFile(students *students) {
+void writeToFile(students *students, int scholarship) {
     ofstream myfile("rating.csv");
     
-    for (int i = 0; i < fileGetNumberOfLines(); i++) {
-        myfile << students[i].name << "," << students[i].g1 << "," << students[i].g2 << "," << students[i].g3 << "," << students[i].g4 << "," << students[i].g5 << "," << students[i].isContract << endl;
+    for (int i = 0; i < scholarship; i++) {
+        myfile << students[i].name << "," << students[i].avg << endl;
     }
     
     myfile.close();

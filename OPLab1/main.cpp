@@ -7,8 +7,8 @@ int main(){
     int numberOfStudents = fileGetNumberOfLines();
     int notContracts = budget(students, numberOfStudents);
     sort(students, numberOfStudents);
-    scholarship(students, notContracts);
-    
+    int scholarship = notContracts*0.4;
+    writeToFile(students, scholarship);
     return 0;
 }
 

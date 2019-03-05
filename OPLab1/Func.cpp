@@ -8,7 +8,7 @@ int budget(students *array, int numberOfStudents){
     int notContracts = 0;
     for(int i = 0; i < numberOfStudents; i++){
         if(array[i].isContract == false){
-            array[i].avg = (array[i].g1+array[i].g2+array[i].g3+array[i].g4+array[i].g5)/5;
+            array[i].avg = (array[i].g1+array[i].g2+array[i].g3+array[i].g4+array[i].g5)/5.0;
             notContracts += 1;
         }
         else{
@@ -31,10 +31,3 @@ void sort(students *array, int numberOfStudents){
     }
 }
 
-void scholarship(students *array, int notContracts){
-    int num = notContracts*0.4;
-    for(int i = 0; i < num; i++){
-        cout << array[i].name << " " << array[i].g1 << " " << array[i].g2 << " " << array[i].g3 << " " << array[i].g4 << " " << array[i].g5 << " Avarage: " << array[i].avg << endl;
-    }
-    cout << "Minimum avarage: " << array[num-1].avg;
-}
