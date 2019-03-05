@@ -18,10 +18,10 @@ students *readFile();
 int fileGetNumberOfLines();
 void writeToFile(students *students);
 
-void budget(students *array);
+int budget(students *array, int numberOfStudents);
 
-void sort(students *array);
+void sort(students *array, int numberOfStudents);
 
-void scholarship(students *array);
+void scholarship(students *array, int notContract);
 
 #endif

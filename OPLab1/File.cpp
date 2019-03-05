@@ -7,7 +7,6 @@
 //
 
 #include <stdio.h>
-#include <string>
 #include "Header.h"
 #include <iostream>
 #include <fstream>
@@ -44,9 +43,10 @@ students *readFile() {
             item[i].isContract = (strcmp(contract, "TRUE") == 0 ? true : false);
         }
         myfile.close();
-    } else
-        cout << "Unable to open file";
-    
+    } else{
+        cout << "Unable to open file\n";
+        exit(1);
+    }
     return item;
 }
 
