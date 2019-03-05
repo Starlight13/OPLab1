@@ -30,6 +30,7 @@
 		79BEFDA4222E869000FB3EB9 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		79BEFDA5222E86A400FB3EB9 /* Func.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Func.cpp; sourceTree = "<group>"; };
 		79BEFDA7222E86C500FB3EB9 /* File.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = File.cpp; sourceTree = "<group>"; };
+		B8807076222E92AE00F962D0 /* students.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = students.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 				79BEFDA4222E869000FB3EB9 /* Header.h */,
 				79BEFDA5222E86A400FB3EB9 /* Func.cpp */,
 				79BEFDA7222E86C500FB3EB9 /* File.cpp */,
+				B8807076222E92AE00F962D0 /* students.csv */,
 			);
 			path = OPLab1;
 			sourceTree = "<group>";

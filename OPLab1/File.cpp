@@ -1,61 +1,51 @@
-//
-//  File.cpp
-//  OPLab1
-//
-//  Created by dsadas asdasd on 3/5/19.
-//  Copyright © 2019 dsadas asdasd. All rights reserved.
-//
-
-#include <stdio.h>
-#include <string>
 #include "Header.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
+using namespace std;
+
+int fileGetNumberOfLines() {
+    char *fileName = "students.csv";
+    int numberOfLines = 0;
+    ifstream myfile (fileName);
+    if (myfile.is_open()) {
+        myfile >> numberOfLines;
+        myfile.close();
+    }
+    return numberOfLines;
+}
 
 students *readFile() {
-    students* item = new students[5];
+    char *fileName = "students.csv";
+    int numberOfLines = fileGetNumberOfLines();
+    string line;
+    char contract[4];
     
-    item[0].name = "Ivanov";
-    item[0].g1 = 1;
-    item[0].g2 = 3;
-    item[0].g3 = 4;
-    item[0].g4 = 2;
-    item[0].g5 = 2;
-    item[0].isContract = true;
+    students* item = new students[numberOfLines];
     
+    ifstream myfile (fileName);
     
-    item[0].name = "Bersh";
-    item[0].g1 = 1;
-    item[0].g2 = 4;
-    item[0].g3 = 8;
-    item[0].g4 = 2;
-    item[0].g5 = 2;
-    item[0].isContract = false;
+    if (myfile.is_open()) {
+        getline (myfile, line);
+        for (int i = 0; i < numberOfLines; i++) {
+            getline (myfile, line);
+            sscanf(line.c_str(), "%[^,],%i,%i,%i,%i,%i,%[^,]", item[i].name, &item[i].g1, &item[i].g2, &item[i].g3, &item[i].g4, &item[i].g5, contract);
+            item[i].isContract = (strcmp(contract, "TRUE") == 0 ? true : false);
+        }
+        myfile.close();
+    } else
+        cout << "Unable to open file";
     
-    
-    item[0].name = "PPPP";
-    item[0].g1 = 6;
-    item[0].g2 = 4;
-    item[0].g3 = 3;
-    item[0].g4 = 8;
-    item[0].g5 = 9;
-    item[0].isContract = false;
-    
-    
-    item[0].name = "UUUU";
-    item[0].g1 = 1;
-    item[0].g2 = 1;
-    item[0].g3 = 3;
-    item[0].g4 = 3;
-    item[0].g5 = 2;
-    item[0].isContract = true;
-    
-    
-    item[0].name = "DDDD";
-    item[0].g1 = 1;
-    item[0].g2 = 2;
-    item[0].g3 = 4;
-    item[0].g4 = 2;
-    item[0].g5 = 5;
-    item[0].isContract = false;
     return item;
+}
+
+void writeToFile(students *students) {
+    ofstream myfile("rating.csv");
+    
+    for (int i = 0; i < fileGetNumberOfLines(); i++) {
+        myfile << students[i].name << "," << students[i].g1 << "," << students[i].g2 << "," << students[i].g3 << "," << students[i].g4 << "," << students[i].g5 << "," << students[i].isContract << endl;
+    }
+    
+    myfile.close();
 }
