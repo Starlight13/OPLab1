@@ -33,7 +33,7 @@ students *readFile() {
     char *fileName = "students.csv";
     int numberOfLines = fileGetNumberOfLines();
     string line;
-    char contract[4];
+    char contract[5];
     
     students* item = new students[numberOfLines];
     
@@ -51,16 +51,16 @@ students *readFile() {
             item[i].name[0] = '\0';
             for (int o = 0; o < (int)line.length(); o++) {
                 if (line[o] >= 'A' && line[o] <= 'z') {
-                    if (passName == 0) {
-                        ttt[0] = (char)line[o];
+                    ttt[0] = (char)line[o];
+                    if (passName == 0)
                         strcat(item[i].name, ttt);
-                    } else {
-                        ttt[0] = (char)line[o];
+                    else
                         strcat(contract, ttt);
-                    }
+                    
                     next = 0;
                 } else if (line[o] >= '0' && line[o] <= '9') {
                     if (next) {
+                        item[i].g[aaai] = 0;
                         item[i].g[aaai] = (line[o] - '0');
                         aaai++;
                     } else {
@@ -75,16 +75,16 @@ students *readFile() {
                 item[i].gLen = aaai;
             }
             
-            sscanf(line.c_str(), "%[^,],%i,%i,%i,%i,%i,%[^,]", item[i].name, &item[i].g1, &item[i].g2, &item[i].g3, &item[i].g4, &item[i].g5, contract);
             item[i].isContract = (strcmp(contract, "TRUE") == 0 ? true : false);
+            memset(contract, 0, sizeof contract);
             
-            cout << item[i].name  << " ] ";
-            
-            for (int p = 0; p < aaai; p++) {
-                cout << item[i].g[p] << " | ";
-            }
-            
-            cout  << " [ " << item[i].isContract << endl;
+//            cout << item[i].name  << " ] ";
+//
+//            for (int p = 0; p < aaai; p++) {
+//                cout << item[i].g[p] << " | ";
+//            }
+//
+//            cout  << " [ " << item[i].isContract << endl;
         }
         myfile.close();
     } else{

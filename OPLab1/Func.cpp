@@ -10,13 +10,9 @@ int budget(students *array, int numberOfStudents){
         if(array[i].isContract == false) {
             int sum = 0;
             int len = array[i].gLen;
-            cout << len << "[" << i << "]" << endl;
-            cout << endl;
-//            for (int o = 0; o < len; o++) {
-                cout << array[i].g[0] << " | ";
-//            }
-            cout << endl;
-            array[i].avg = (array[i].g1+array[i].g2+array[i].g3+array[i].g4+array[i].g5)/5.0;
+            for (int o = 0; o < len; o++)
+                sum += array[i].g[o];
+            array[i].avg = sum / array[i].gLen;
             notContracts += 1;
             sum = 0;
         }

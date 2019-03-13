@@ -13,7 +13,7 @@ struct students
     bool isContract;
     double avg;
     double gLen;
-    int g[];
+    int g[100];
 };
 
 students *readFile();
