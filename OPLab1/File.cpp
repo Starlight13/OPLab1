@@ -16,10 +16,12 @@ using namespace std;
 
 int fileGetNumberOfLines() {
     char *fileName = "students.csv";
-    int numberOfLines = 0;
+    int numberOfLines = 1;
+    string line;
     ifstream myfile (fileName);
     if (myfile.is_open()) {
-        myfile >> numberOfLines;
+        while (getline (myfile, line))
+            numberOfLines++;
         myfile.close();
     }
     return numberOfLines;
