@@ -6,10 +6,19 @@ using namespace std;
 
 int budget(students *array, int numberOfStudents){
     int notContracts = 0;
-    for(int i = 0; i < numberOfStudents; i++){
-        if(array[i].isContract == false){
+    for (int i = 0; i < numberOfStudents; i++){
+        if(array[i].isContract == false) {
+            int sum = 0;
+            int len = array[i].gLen;
+            cout << len << "[" << i << "]" << endl;
+            cout << endl;
+//            for (int o = 0; o < len; o++) {
+                cout << array[i].g[0] << " | ";
+//            }
+            cout << endl;
             array[i].avg = (array[i].g1+array[i].g2+array[i].g3+array[i].g4+array[i].g5)/5.0;
             notContracts += 1;
+            sum = 0;
         }
         else{
             array[i].avg = 0;

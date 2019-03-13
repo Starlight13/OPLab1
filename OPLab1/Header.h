@@ -12,6 +12,8 @@ struct students
     int g1, g2, g3, g4, g5;
     bool isContract;
     double avg;
+    double gLen;
+    int g[];
 };
 
 students *readFile();
